@@ -1,4 +1,4 @@
-import conf from "../conf/conf.js";
+import conf from '../conf/conf.js';
 import { Client, Account, ID } from "appwrite";
 
 
@@ -28,7 +28,6 @@ export class AuthService {
         }
     }
 
-
     async login({email, password}) {
         try {
             return await this.account.createEmailSession(email, password);
@@ -39,11 +38,9 @@ export class AuthService {
 
     async getCurrentUser() {
         try {
-           
-        return  await this.account.get();
+            return await this.account.get();
         } catch (error) {
-            console.log("Appwrite serive :: logout :: error", error);
-
+            console.log("Appwrite serive :: getCurrentUser :: error", error);
         }
 
         return null;
